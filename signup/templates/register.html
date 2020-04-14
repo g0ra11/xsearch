@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+
+
+
+<div class="login">
+    <div class="heading" >
+
+        <span class="mytext">$register:\<span class="blink_text">_</span></span>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div >
+              <input type="text" autocomplete="off" id="termtext" name="username" placeholder="Username" />
+            </div>
+            <div >
+              <input type="password"  autocomplete="off" id="termtext" name="password" placeholder="Password" />
+            </div>
+            <div >
+              <input type="password"  autocomplete="off" id="termtext" name="rep_pass" placeholder="Repeat Password" />
+            </div>
+            <div >
+              <input type="email" autocomplete="off" id="termtext" name="email" placeholder="Email" />
+            </div>
+            <div class="buttonHolder">
+            <button id="logbtn" type="submit" >
+                <div id="logintext">
+                    <h1>Enter</h1>
+                </div>
+            </button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+
+<div class="buttonHolder">
+  {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="dangeralert">
+          <h3>{{ message }}</h3>
+       </div>
+      {% endif %}
+
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="dangeralert" style="color: green;">
+          <h3>{{ message }}</h3>
+       </div>
+      {% endif %}
+
+  {% endfor %}
+</div>
+
+{% endblock %}

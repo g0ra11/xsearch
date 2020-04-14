@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block top_bar %}
+<ul>
+  <li><a href="/search" style="color:white">Search<span class="blink_text">_</span></a></li>
+  <li><a href="/user" style="color:white">User<span class="blink_text">_</span></a></li>
+  {% if adm %}
+    <li><a href="/admin" style="color:white">Admin<span class="blink_text">_</span></a></li>
+  {% endif %}
+  <li><a href="/logout" style="color:white">Logout<span class="blink_text">_</span></a></li>
+</ul>
+{% endblock %}
+
+
+{% block page_content %}
+
+<div style="width: 100%; height: 100%;">
+    <div style="background: black; margin: 0 auto;">
+        <h2 class="user_text">User : {{username}}</h2>
+        <br>
+        <h4 class="user_text">Email : {{email}}</h4>
+        <br>
+        <h4 class="user_text">Search hist</h4>
+        <div style="overflow-y: scroll; height:200px;">
+             {% for elem in hist %}
+                 <h6 class="user_text">{{elem}}</h6>
+             {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

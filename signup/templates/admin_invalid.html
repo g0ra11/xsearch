@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block top_bar %}
+<ul>
+  <li><a href="/search">Search</a></li>
+  <li><a href="/user">User</a></li>
+  {% if adm %}
+    <li><a href="/admin">Admin</a></li>
+  {% endif %}
+  <li><a href="/logout">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+
+<div>
+    <h2 style="color:red">You need to be Admin in oreder to look at requests</h2>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block top_bar %}
+<ul>
+  <li><a href="/search" style="color:white">Search<span class="blink_text">_</span></a></li>
+  <li><a href="/user" style="color:white">User<span class="blink_text">_</span></a></li>
+  {% if adm %}
+    <li><a href="/admin" style="color:white">Admin<span class="blink_text">_</span></a></li>
+  {% endif %}
+  <li><a href="/logout" style="color:white">Logout<span class="blink_text">_</span></a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="login">
+    <div class="heading" >
+
+        <span class="mytext">$search:\<span class="blink_text">_</span></span>
+        <form method="post">
+            {% csrf_token %}
+            <div >
+              <input type="text" autocomplete="off" id="termtext" name="search" placeholder="Search" />
+            </div>
+            <div class="buttonHolder">
+            <button id="logbtn" type="submit" >
+                <div id="logintext" style="width: 140px">
+                    <h1>Search</h1>
+                </div>
+            </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% for message in messages %}
+  <div class="alert alert-danger">
+      <a class="close" href="#" data-dismiss="alert">×</a>
+      {{ message }}
+   </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<script type="text/javascript">
+    var data = {{data|safe}}
+</script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div style="width: 100%; height: 100%;">
+
+
+    <div id="matrixdiv">
+        <canvas id="matrix"></canvas>
+    </div>
+
+
+    <div id="container">
+    <ul>
+      <li><a href="/search">Search<span class="blink_text">_</span></a></li>
+      <li><a href="/user">User<span class="blink_text">_</span></a></li>
+      {% if adm %}
+        <li><a href="/admin">Admin<span class="blink_text">_</span></a></li>
+      {% endif %}
+      <li><a href="/logout">Logout<span class="blink_text">_</span></a></li>
+    </ul>
+
+    </div>
+
+
+    <script src="{% static 'js/matrix.js' %}"></script>
+
+    <div id = "searchres" style="width: 100%; height: 100%;" >
+        <div id="mynetwork" class="mynetwork">
+            <script src="{% static 'js/vis.js' %}"></script>
+            <script src="{% static 'js/graphtest.js' %}"></script>
+        </div>
+
+        <div id="preview", class="preview">
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+

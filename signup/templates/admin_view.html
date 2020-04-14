@@ -1,0 +1,95 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+
+
+<div style="width: 100%; height: 100%;">
+    <div id="matrixdiv">
+        <canvas id="matrix"></canvas>
+    </div>
+
+    <div id="container">
+
+    <ul>
+      <li><a href="/search" style="color:white">Search<span class="blink_text">_</span></a></li>
+      <li><a href="/user" style="color:white">User<span class="blink_text">_</span></a></li>
+      {% if adm %}
+        <li><a href="/admin" style="color:white">Admin<span class="blink_text">_</span></a></li>
+      {% endif %}
+      <li><a href="/logout" style="color:white">Logout<span class="blink_text">_</span></a></li>
+    </ul>
+
+    </div>
+
+
+    <div class="admin_req_div" style="float: left">
+    {% if requests|length != 0 %}
+    <h2 style="text-align: center;">Current requests</h2>
+    <div>
+        <br>
+        <table summary="requests" style="background: black; margin: 0 auto;">
+            {% for result in requests %}
+            <tr>
+                <td style="color: yellow">Username : &nbsp;{{ result.username }}</td>
+                <td>
+                    <button id="logbtn" style="font-size:15px;  color:green; width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/app/{{result.username}}'" >Approve</button>
+                    <button id="logbtn" style="font-size:15px;  color:green;width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/dis/{{result.username}}'" >Dissapprove</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <h2>No new requests</h2>
+    {% endif %}
+    </div>
+
+
+    <div class="admin_db_div" style="float: left">
+    {% if requests|length != 0 %}
+    <h2 style="text-align: center;">Current users</h2>
+    <div>
+        <br>
+        <table summary="requests" style="background: black; margin: 0 auto;">
+            {% for result in users %}
+            <tr>
+                {% if result.is_adm %}
+                <td style="color: blue ">Username : &nbsp;{{ result.username }}</td>
+                {% else %}
+                <td style="color: yellow">Username : &nbsp;{{ result.username }}</td>
+                {% endif %}
+                <td>
+                    {% if not result.is_cur %}
+                    {% if result.is_blk == 0 %}
+                    <button id="logbtn" style="font-size:15px;  color:orange; width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/blk/{{result.username}}'" >Block</button>
+                    {% else %}
+                    <button id="logbtn" style="font-size:15px;  color:green; width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/unb/{{result.username}}'" >Unblock</button>
+                    {% endif %}
+                    {% if not result.is_adm %}
+                    <button id="logbtn" style="font-size:15px;  color:red;width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/delete/{{result.username}}'" >Delete</button>
+                    {% endif %}
+                    {% else %}
+                    <button id="logbtn" style="font-size:15px;  color:green; width: 100px; min-height: 30px; margin: 0 auto;" onclick=" window.location.href = '/user'" >User</button>
+                    {% endif %}
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <h2>No new requests</h2>
+    {% endif %}
+    </div>
+
+
+
+    <script src="{% static 'js/matrix.js' %}"></script>
+
+
+</div>
+

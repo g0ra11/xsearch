@@ -1,0 +1,303 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+
+
+
+body {background: black;}
+canvas {display: block;}
+
+
+#matrixdiv{
+    position: relative;
+}
+
+#mynetwork {
+  float: left;
+  width: 70%;
+  height: 70%;
+  border: 5px solid lightgray;
+}
+
+
+
+
+#preview {
+  float: left;
+  width: 30%;
+  height: 30%;
+}
+
+#preview:after {
+  content: "";
+  display: block;
+}
+
+#pic {
+  float: right,
+  width: 99%;
+}
+
+#pic:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+$shadow-color: #23203b;
+$input-color: lighten(#AB9E95, 10%);
+$input-border-color: #5E5165;
+$button-background-color: #27AE60;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#container{
+position: absolute;
+  top: 0px;
+width:100%;
+height:100%
+}
+
+#searchres{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+
+.user_data_div{
+    position: absolute;
+    font-family: Consolas,monaco,monospace;
+    color: white;
+    width:60%;
+    height:30%;
+      top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+
+}
+
+.admin_req_div{
+    position: absolute;
+    font-family: Consolas,monaco,monospace;
+    color: white;
+    width:60%;
+    height:30%;
+      top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-90%) translateY(-50%);
+  -webkit-transform: translate(-90%,-50%);
+  transform: translate(-90%,-50%);
+
+}
+
+.admin_db_div{
+    position: absolute;
+    font-family: Consolas,monaco,monospace;
+    color: white;
+    width:60%;
+    height:30%;
+      top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-25%) translateY(-50%);
+  -webkit-transform: translate(-25%,-50%);
+  transform: translate(-25%,-50%);
+
+}
+
+#pagecont{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  }
+
+ul {
+  list-style-type: none;
+  width:100%;
+}
+
+
+
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 20px;
+  font-size: 25px;
+  font-family: Consolas,monaco,monospace;
+}
+
+
+
+#log {
+  font-size: 3em;
+  font-weight: 300;
+  color: #000060;
+  display: inline-block;
+  padding-bottom: 5px;
+  text-shadow: 13px 13px 13px $shadow-color;
+}
+
+
+
+#termtext {
+      @include normalize-input;
+
+      width: 100%;
+      background: transparent;
+      color: $input-color;
+
+
+    background-color: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 8px;
+    font-family: courier new;
+    text-shadow: #00ff00;
+
+}
+
+
+.login {
+
+  width: 400px;
+  min-height: 400px;
+
+padding: 15px;
+
+
+  .heading {
+
+    text-align: center;
+    margin:0 auto;
+  }
+
+}
+
+.buttonHolder{ text-align: center; }
+
+
+.dangeralert {
+    float:center;
+    margin-top: 20px;
+    font-family: Consolas,monaco,monospace;
+    border: none;
+    color: red;
+    background-color: transparent;
+    float: center;
+}
+
+ #logbtn {
+  margin-top: 20px;
+  border: none;
+  font-family: Consolas,monaco,monospace;
+  font-size: 18px;
+  font-weight: 300;
+  width: 125px;
+  min-height: 50px;
+  background-color: transparent;
+  color: white;
+  float: center;
+}
+
+
+ .user_text {
+  font-family: Consolas,monaco,monospace;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: transparent;
+  color: white;
+  float: center;
+}
+
+#logintext{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 1.5s steps(40, end);
+
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+
+
+.mytext {
+
+    font-family: Consolas,monaco,monospace;
+    background-color: black;
+     color: green;
+     font-size: 30px;
+}
+
+.blink_text {
+    animation:1s blinker linear infinite;
+    -webkit-animation:1s blinker linear infinite;
+    -moz-animation:1s blinker linear infinite;
+}
+
+
+
+
+
+@-moz-keyframes blinker {
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@-webkit-keyframes blinker {
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@keyframes blinker {
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+
+
+ button:focus, textarea:focus, input:focus{
+    outline: none;
+}
+
+
+::-webkit-input-placeholder {
+    color:green;
+}
+
+::-moz-placeholder {
+    color:green;
+}
+
+::-ms-placeholder {
+    color:green;
+}
+
+::placeholder {
+    color:green;
+}
